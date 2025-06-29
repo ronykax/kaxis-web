@@ -12,36 +12,23 @@ export default function Home() {
     }) => {
         return (
             <button
-                className={`cursor-pointer duration-100 ${className}`}
+                className={`cursor-pointer duration-100 ${className} relative group`}
                 onClick={() => (window.location.href = url)}
             >
-                <span className="block md:-rotate-45">{name}</span>
+                <div className="border-[12px] border-black/50 duration-100 absolute inset-0 opacity-0 group-hover:opacity-100"></div>
+                <span className="block md:-rotate-45 relative [text-shadow:-2px_2px_black]">
+                    {name}
+                </span>
             </button>
         );
     };
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-4 w-full h-screen text-2xl font-bold">
-            <Item
-                name="pomodoro"
-                url="/pomodoro"
-                className="bg-red-400/25 hover:bg-red-400/50"
-            />
-            <Item
-                name="notes"
-                url="/notes"
-                className="bg-yellow-300/25 hover:bg-yellow-300/50"
-            />
-            <Item
-                name="todo"
-                url="/todo"
-                className="bg-blue-400/25 hover:bg-blue-400/50"
-            />
-            <Item
-                name="reminders"
-                url="/reminders"
-                className="bg-purple-500/25 hover:bg-purple-500/50"
-            />
+        <div className="grid grid-cols-1 gap-0.5 md:grid-cols-4 w-full h-screen text-4xl font-bold">
+            <Item name="pomodoro" url="/pomodoro" className="bg-red-500" />
+            <Item name="notes" url="/notes" className="bg-amber-400" />
+            <Item name="todo" url="/todo" className="bg-indigo-600" />
+            <Item name="reminders" url="/reminders" className="bg-purple-600" />
         </div>
     );
 }
